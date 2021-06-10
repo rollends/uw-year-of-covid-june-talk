@@ -23,8 +23,17 @@ spellcheck-%.md.tmp: %.md Makefile
 	$(MAKE) -C $(BUILD)/$*/ root.pdf
 	cp $(BUILD)/$*/root.pdf $@
 
+presentation.pdf: presentation.tex refs/references.bib gfx/InstrumentModelling.pdf gfx/ThoughtExperiment.pdf Makefile
+	mkdir -p $(BUILD)/presentation/
+	cp $^ $(BUILD)/presentation/
+	mv $(BUILD)/presentation/presentation.tex $(BUILD)/presentation/root.tex
+	touch $(BUILD)/presentation/root.tex
+	$(MAKE) -C $(BUILD)/presentation/ root.pdf
+	cp $(BUILD)/presentation/root.pdf $@
+
 root.pdf: root.tex
 	texfot lualatex root.tex
+	texfot biber root
 	texfot lualatex root.tex
 
 .PHONY: all clean spellcheck
