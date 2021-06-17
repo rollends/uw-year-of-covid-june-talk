@@ -23,7 +23,7 @@ spellcheck-%.md.tmp: %.md Makefile
 	$(MAKE) -C $(BUILD)/$*/ root.pdf
 	cp $(BUILD)/$*/root.pdf $@
 
-presentation.pdf: presentation.tex refs/references.bib gfx/InstrumentModelling.pdf gfx/ThoughtExperiment.pdf Makefile
+presentation.pdf: presentation.tex refs/references.bib gfx/InstrumentModelling.pdf gfx/ThoughtExperiment.pdf gfx/roveroverlook.jpg gfx/SpaceShuttle_Trans.png Makefile
 	mkdir -p $(BUILD)/presentation/
 	cp $^ $(BUILD)/presentation/
 	mv $(BUILD)/presentation/presentation.tex $(BUILD)/presentation/root.tex

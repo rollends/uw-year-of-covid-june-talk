@@ -49,17 +49,11 @@
 
 \section{Background}
 
-\begin{frame}{Traditional Engineering Lab Work}
-  \emph{Generally accepted wisdoms...}
-  \begin{itemize}
-    \item{
-      Labs add value by engaging students with the real world aspects of engineering.
-    }
-    \pause
-    \item{
-      Labs motivate students; give a ``feel'' for the domain.
-    }
-  \end{itemize}
+\begin{frame}{Traditional Lab Work}
+  \emph{Generally accepted wisdom...}
+  \begin{center}
+    Labs add value by engaging students with the real world aspects of the field and motivate students to learn.
+  \end{center}
 \end{frame}
 
 \begin{frame}{The Objectives of Laboratory Work}
@@ -69,7 +63,7 @@
       Instrumentation: learning practical techniques and tools,
     } \pause
     \item{
-      Modelling: managing with imperfect models,
+      Modelling: managing with our imperfect models of reality,
     } \pause
     \item{
       Teamwork and Collaboration: working effectively in teams.
@@ -79,19 +73,19 @@
 
 \section{Going Online}
 
-\frame<1>[label=goingonline]{
-  \frametitle{Going Online: Meeting the Objectives}
-  How do we meet these objectives?
-  \begin{itemize}
-    \item{
-      \color<2->{UWEngPrimary!50!white!50}
-      Instrumentation and Modelling
-    } \pause
-    \item{
-      Teamwork and Collaboration
-    }
-  \end{itemize}
-}
+% \frame<1>[label=goingonline]{
+%   \frametitle{Going Online: Meeting the Objectives}
+%   How do we meet these objectives?
+%   \begin{itemize}
+%     \item{
+%       \color<2->{UWEngPrimary!50!white!50}
+%       Instrumentation and Modelling
+%     } \pause
+%     \item{
+%       Teamwork and Collaboration
+%     }
+%   \end{itemize}
+% }
 
 \begin{frame}{Instrumentation and Modelling}
   \begin{tikzpicture}[x=1cm, y=1cm]
@@ -124,13 +118,117 @@
       \end{itemize}
       \end{minipage}
     };
-    \node[at={(0,-0.5)}, anchor=south west]{
-      \emph{%
-        \tiny%
-        Vector graphics created by rawpixel.com and brgfx --- \href{https://www.freepik.com/vectors/icons}{www.freepik.com}
-      }
+    \node[at={(0, 0)}, anchor=south west]{
+      \fontsize{0.1cm}{0.12cm}\selectfont
+      Graphics created by rawpixel.com and brgfx --- \href{https://www.freepik.com/vectors/icons}{freepik.com}
     };
   \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Model Interaction}
+  \begin{center}
+  \begin{tikzpicture}
+    \node[] (Coarse) {%
+      \begin{minipage}{5.5em}
+        \begin{center}No Model\end{center}
+      \end{minipage}%
+    };
+    \node[right={6cm of Coarse}] (Fine) {%
+      \begin{minipage}{5.5em}
+        \begin{center}Real World\end{center}
+      \end{minipage}%
+    };
+    \node[right={2cm of Coarse}] (StudentModel) {};
+    \node[right={4cm of Coarse}] (InstructorModel) {};
+    \node[above={2em of InstructorModel}] (InstructorText) {};
+    \node[above={2em of InstructorModel}] {
+      \includegraphics[scale=0.25]{SpaceShuttle_Trans.png}
+    };
+
+    \draw[<->] (Coarse.east) -- (Fine.west);
+    \fill (StudentModel.base) circle[radius=0.05cm];
+    \fill (InstructorModel.base) circle[radius=0.05cm];
+
+    \node[below={2em of StudentModel}] (StudentText) {
+      Student's Model
+    };
+    \draw[->] (StudentText.north) -- (StudentModel.south);
+
+    \node[below={0.5em of Fine.south east}, anchor={north east}] (Rover) {
+      \includegraphics[scale=0.10]{roveroverlook.jpg}
+    };
+    \node[anchor={south west}, at={(Rover.south west)}] {
+      \fontsize{0.1cm}{0.12cm}\selectfont
+      \color{white}
+      Credits: NASA/JPL-Caltech/ASU/MSSS
+    };
+
+    \node[at={(InstructorText)}] (InstructorTextBox) {
+      Simulated Model
+    };
+    \draw[->] (InstructorTextBox.south) -- (InstructorModel.north);
+  \end{tikzpicture}
+  \end{center}
+  \pause
+  if done well students can experience ``real world'' effects~\cite{Chen2010};
+  can be hard to implement well~\cite{Waestberg2019}.
+\end{frame}
+
+% \againframe<3>{goingonline}
+
+\begin{frame}{Collaboration in Person}
+  \begin{center}
+    \includegraphics[page=1]{ThoughtExperiment.pdf}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Collaboration Online}
+  \begin{center}
+    \begin{tikzpicture}
+      \node[at={(0,0)}, anchor={south west}] {
+        \includegraphics[page=2]{ThoughtExperiment.pdf}
+      };
+
+      \node[at={(0,0)}, anchor={south west}] {
+        \begin{minipage}{4cm}
+          Peer-to-peer social presence is important.\\
+          Can affect learning~\cite{Fiock2020}.\hfill
+        \end{minipage}
+      };
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\section{Ending Thoughts}
+
+\begin{frame}{Lessons as we go back in person...}
+  %Implementing virtual content was hard.
+  We have implemented one year of virtual content.
+  \pause
+  Opportunity to consider blended content that can produce better student learning outcomes~\cite{Bumbacher2017, Olympiou2011}.
+  \pause
+  \begin{itemize}
+    \item{
+      Are we incorporating modern instrumentation as well as we could?
+    }
+    \item{
+      Can we leverage our newly developed virtual/remote content?
+    }
+    \item{
+      Do we take as seriously the intergroup collaboration as we do intragroup collaboration?
+    }
+  \end{itemize}
+\end{frame}
+
+\section{Appendix}
+
+\begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=false,rounded=false]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
 \end{frame}
 
 \begin{frame}{Model Interaction}
@@ -163,7 +261,6 @@
     \draw[->] (InstructorText.south) -- (InstructorModel.north);
   \end{tikzpicture}
   \end{center}
-  \pause
   \begin{itemize}
     \item{
       if done well students can perform the lab while still experiencing ``real world'' effects~\cite{Chen2010}.
@@ -177,55 +274,10 @@
   \end{itemize}
 \end{frame}
 
-\againframe<3>{goingonline}
-
-\begin{frame}{Collaboration in Person}
-  \begin{center}
-    \includegraphics[page=1]{ThoughtExperiment.pdf}
-  \end{center}
-\end{frame}
-
-\begin{frame}{Collaboration Online}
-  \begin{center}
-    \begin{tikzpicture}
-      \node[at={(0,0)}, anchor={south west}] {
-        \includegraphics[page=2]{ThoughtExperiment.pdf}
-      };
-
-      \node[at={(0,0)}, anchor={south west}] {
-        \begin{minipage}{4cm}
-          This peer-to-peer social presence is important and can affect learning efficiency~\cite{Fiock2020}.
-        \end{minipage}
-      };
-    \end{tikzpicture}
-  \end{center}
-\end{frame}
-
-\section{Ending Thoughts}
-
-\begin{frame}{Lessons as we go back in person...}
-  Implementing virtual content was hard. We have done it now though.
-  \pause
-  Opportunity to consider blended content that can produce better student learning outcomes~\cite{Bumbacher2017, Olympiou2011}.
-  \pause
-  \begin{itemize}
-    \item{
-      Are we incorporating modern instrumentation as well as we could?
-    }
-    \pause
-    \item{
-      Can we tune the model presented in the in-person lab to improve student outcomes? Can we leverage our newly developed virtual/remote content?
-    }
-    \pause
-    \item{
-      Do we take as seriously the intergroup collaboration as we do intragroup collaboration?
-    }
-  \end{itemize}
-\end{frame}
-
 \renewcommand*{\bibfont}{\tiny}
 \begin{frame}{References}{}
-\printbibliography
+\printbibliography[heading=none]
 \end{frame}
+
 
 \end{document}
